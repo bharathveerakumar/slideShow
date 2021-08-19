@@ -42,7 +42,7 @@
 
         nextBtn.addEventListener('click', inc);
 
-        setInterval(inc, 4000);
+        let h=setInterval(inc, 4000);
 
         function inc(){
             if(i==4) i=0;
@@ -53,6 +53,7 @@
         prevBtn.addEventListener('click', dec);
 
         function dec(){
+            clearInterval(h);
             if(i==0) i=4;
             else i--;
             cont.style.left=-width*i+'px';
