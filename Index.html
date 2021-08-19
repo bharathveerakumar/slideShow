@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="main.js"></script> -->
+    <link rel="stylesheet" href="styles.css">
+    <title>slide-show</title>
+</head>
+<body>
+    <div class="cont">
+        <div class="img_cont">
+            <div class="items">
+                <img src="photos/1.jpg" alt="1">
+            </div>
+            <div class="items">
+                <img src="photos/2.jpg" alt="2">
+            </div>
+            <div class="items">
+                <img src="photos/3.jpg" alt="3">
+            </div>
+            <div class="items">
+                <img src="photos/4.jpg" alt="4">
+            </div>
+            <div class="items">
+                <img src="photos/5.jpg" alt="5">
+            </div>
+        </div>
+    </div>
+    <div class="btn">
+        <button class="prevbtn">Prev</button>
+        <button class="nextbtn">Next</button>
+    </div>
+    <script>
+        const x=document.querySelectorAll('.items');
+        let width=600, i=0, cont=document.querySelector('.img_cont');
+        let nextBtn=document.querySelector('.nextbtn');
+        let prevBtn=document.querySelector('.prevbtn');
+        x.forEach((imgs,index)=>{
+            imgs.style.left=width*index+'px';
+        });
+
+        nextBtn.addEventListener('click', inc);
+
+        setInterval(inc, 4000);
+
+        function inc(){
+            if(i==4) i=0;
+            else i++;
+            cont.style.left=-width*(i)+'px';
+            console.log(cont.style.left);
+        }
+        prevBtn.addEventListener('click', dec);
+
+        function dec(){
+            if(i==0) i=4;
+            else i--;
+            cont.style.left=-width*i+'px';
+            console.log(cont.style.left);
+        }
+    </script>
+</body>
+</html>
